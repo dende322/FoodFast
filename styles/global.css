@@ -1,0 +1,160 @@
+/* Global CSS file for the entire project */
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --primary-color: #a6a182;
+  --secondary-color: #1f2120;
+  --text-color: #aeb0b4;
+  --light-color: #fff;
+  --color-divider: #ffffff;
+  --dark-color-divider: #0e110d;
+
+  /* Fuentes */
+  --default-font: "Hanken Grotesk", serif;
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--default-font);
+  color: var(--text-color);
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: var(--default-font);
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.background-dark-1 {
+  background-color: var(--dark-color-divider);
+}
+
+.background-dark-2 {
+  background-color: var(--secondary-color);
+}
+
+section {
+  padding: 100px 0;
+
+  @media (max-width: 992px) {
+    padding: 50px 15px;
+  }
+}
+
+.container-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+  span {
+    color: var(--light-color);
+    font-size: 26px;
+    font-weight: 600;
+  }
+}
+
+.btn {
+  text-decoration: none;
+  padding: 17px 25px;
+  text-transform: capitalize;
+  border-radius: 99999px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
+
+  &.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    position: relative;
+
+    &:hover {
+      background-color: var(--light-color);
+      color: var(--dark-color-divider);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: var(--light-color);
+    color: var(--dark-color-divider);
+    position: relative;
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--light-color);
+    }
+  }
+}
+
+.badge {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: var(--primary-color);
+  }
+}
+
+.title {
+  font-size: 42px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 800;
+  color: var(--light-color);
+
+  span {
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 992px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}

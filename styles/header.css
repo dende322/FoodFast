@@ -1,0 +1,143 @@
+header {
+  border-bottom: 1px solid var(--color-divider);
+  z-index: 1000;
+  background-color: #00000060;
+  padding: 30px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  .header-expand {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        li {
+          list-style: none;
+
+          a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+
+            &:hover {
+              color: var(--primary-color);
+            }
+          }
+        }
+      }
+    }
+
+    .btn-toggle {
+      /* Oculta por defecto */
+      display: none;
+
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: var(--light-color);
+      border: none;
+      background-color: var(--primary-color);
+      width: 35px;
+      height: 35px;
+      border-radius: 7px;
+
+      i {
+        display: none;
+        font-size: 22px;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .menu-responsive {
+    position: absolute;
+    left: 0;
+    transition: max-height 0.3s ease-in-out;
+    background-color: var(--primary-color);
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+
+      li {
+        list-style: none;
+        width: 100%;
+
+        a {
+          text-decoration: none;
+          color: var(--light-color);
+          font-weight: 400;
+          font-size: 16px;
+          transition: color 0.3s ease-in-out;
+          display: block;
+
+          &:hover {
+            color: var(--dark-color-divider);
+          }
+        }
+      }
+    }
+  }
+
+  .menu-responsive.show {
+    max-height: 300px;
+  }
+
+  @media (min-width: 993px) {
+    .menu-responsive.show {
+      display: none;
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 15px;
+
+    .header-expand {
+      .container-logo {
+        flex: 1;
+      }
+
+      nav,
+      .btn-primary {
+        display: none;
+      }
+
+      .btn-toggle {
+        display: flex;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-expand {
+      .btn-toggle {
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
